@@ -17,14 +17,14 @@ int main (int argc, char **argv)
 	int32_t channels = 0;
 	int32_t image_w = 0;
 	int32_t image_h = 0;
-	uint8_t *image_pixels = (uint8_t *) stbi_load ("test.tga", &image_w, &image_h, &channels, STBI_rgb_alpha);
+	uint8_t *image_pixels = (uint8_t *) stbi_load ("data/test.tga", &image_w, &image_h, &channels, STBI_rgb_alpha);
 
 	sre_t *sre = NULL;
 	sre_init (1280 / 2, 720 / 2, &sre);
 
 	SDL_Texture *target = SDL_CreateTexture (renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_STREAMING, sre->screen.width, sre->screen.height);
 
-	const aiScene *scene = aiImportFile ("box.fbx", aiProcessPreset_TargetRealtime_MaxQuality | aiProcess_Triangulate | aiProcess_GenSmoothNormals);
+	const aiScene *scene = aiImportFile ("data/test.obj", aiProcessPreset_TargetRealtime_MaxQuality | aiProcess_Triangulate | aiProcess_GenSmoothNormals);
 	assert (scene != NULL);
 
 	uint16_t vertex_count = 0;
@@ -181,11 +181,11 @@ int main (int argc, char **argv)
 		sre_set_model (sre, jmp_float3 (0.0f, 0.0f, 10.0f), jmp_float3 (0.0f, 0.0f, 0.0f));
 		sre_draw (sre, vertex_count, vertices);
 
-		/*uint32_t index = (sre->screen.width / 2) * 4 + (sre->screen.height / 2 * sre->screen.width * 4);
+		uint32_t index = (sre->screen.width / 2) * 4 + (sre->screen.height / 2 * sre->screen.width * 4);
 		sre->screen.pixels [index] = 0xFF;
 		sre->screen.pixels [index + 1] = 0x00;
 		sre->screen.pixels [index + 2] = 0x00;
-		sre->screen.pixels [index + 3] = 0xFF;*/
+		sre->screen.pixels [index + 3] = 0xFF;
 
 		SDL_UpdateTexture (target, NULL, sre->screen.pixels, sre->screen.width * SRE_BYTES_PER_PIXEL);
 		SDL_RenderCopy (renderer, target, NULL, NULL);
