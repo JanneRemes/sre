@@ -38,8 +38,5 @@
     <ClCompile Include="sre\sre.c">
       <Filter>Source Files\sre</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
