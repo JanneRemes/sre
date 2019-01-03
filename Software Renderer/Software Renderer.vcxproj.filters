@@ -30,6 +30,12 @@
     <ClInclude Include="sre\jmp_math.h">
       <Filter>Header Files\sre</Filter>
     </ClInclude>
+    <ClInclude Include="sre\bsp.h">
+      <Filter>Header Files\sre</Filter>
+    </ClInclude>
+    <ClInclude Include="sre\begin.h">
+      <Filter>Header Files\sre</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

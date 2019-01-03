@@ -165,6 +165,8 @@
     <ClCompile Include="sre\sre.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="sre\begin.h" />
+    <ClInclude Include="sre\bsp.h" />
     <ClInclude Include="sre\jmp_math.h" />
     <ClInclude Include="sre\sre.h" />
     <ClInclude Include="stb_image.h" />
