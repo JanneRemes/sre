@@ -1,11 +1,7 @@
 #ifndef SRE_H
 #define SRE_H
 
-#include <stdint.h>
-#include "jmp_math.h"
-
-#define SRE_API
-#define SRE_BYTES_PER_PIXEL 4
+#include "begin.h"
 
 typedef struct sre_t
 {
@@ -36,9 +32,7 @@ typedef struct
 	jmp_float2_t uv;
 } sre_vertex_t;
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+SRE_EXTERN_C_BEGIN
 
 SRE_API int32_t	sre_init	(uint32_t width, uint32_t height, sre_t **sre);
 SRE_API	void	sre_quit	(sre_t *sre);
@@ -50,7 +44,5 @@ SRE_API void	sre_set_camera	(sre_t *sre, jmp_float3_t position, jmp_float3_t rot
 SRE_API void	sre_set_model	(sre_t *sre, jmp_float3_t position, jmp_float3_t rotation);
 SRE_API	void	sre_draw		(sre_t *sre, uint16_t count, sre_vertex_t *vertices);
 
-#ifdef __cplusplus
-}
-#endif
+SRE_EXTERN_C_END
 #endif // SRE_H
